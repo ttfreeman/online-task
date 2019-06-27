@@ -1,6 +1,6 @@
 from datetime import datetime
 from sqlalchemy import create_engine, Column, String, Integer, DateTime
-from sqlalchemy.ext.declerative import declerative_base
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 db_url = 'localhost:5432'
@@ -12,7 +12,7 @@ engine = create_engine(
 
 Session = sessionmaker(bind=engine)
 
-Base = declerative_base()
+Base = declarative_base()
 
 
 class Entity():
