@@ -1,27 +1,14 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Subscription } from "rxjs";
-import { Exam } from "./exam.model";
-import { ExamsApiService } from "./exams-api.service";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   title = "Exams App";
-  examsListSubs: Subscription;
-  examsList: Exam[];
 
-  constructor(private examsApi: ExamsApiService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.examsListSubs = this.examsApi.getExams().subscribe(res => {
-      this.examsList = res;
-    }, console.error);
-  }
-
-  ngOnDestroy() {
-    this.examsListSubs.unsubscribe();
-  }
+  ngOnInit() {}
 }
