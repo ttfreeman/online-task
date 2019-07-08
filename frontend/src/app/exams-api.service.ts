@@ -31,6 +31,6 @@ export class ExamsApiService {
         Authorization: `Bearer ${Auth0.getAccessToken()}`
       })
     };
-    return this.http.post(`${API_URL}/exams`, exam);
+    return this.http.post(`${API_URL}/exams`, exam, httpOptions);
   }
 }
