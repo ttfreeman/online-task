@@ -4,7 +4,12 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
-import { MatToolbarModule, MatButtonModule } from "@angular/material";
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatCardModule,
+  MatInputModule
+} from "@angular/material";
 
 import { AppComponent } from "./app.component";
 import { ExamsApiService } from "./exams-api.service";
@@ -25,7 +30,9 @@ import { CallbackComponent } from "./callback/callback.component";
     HttpClientModule,
     NoopAnimationsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule
   ],
   providers: [ExamsApiService],
   bootstrap: [AppComponent]
