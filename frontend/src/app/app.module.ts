@@ -3,6 +3,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+import { MatToolbarModule, MatButtonModule } from "@angular/material";
+
 import { AppComponent } from "./app.component";
 import { ExamsApiService } from "./exams-api.service";
 import { ExamsComponent } from "./exams/exams.component";
@@ -16,7 +19,14 @@ import { CallbackComponent } from "./callback/callback.component";
     ExamFormComponent,
     CallbackComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NoopAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule
+  ],
   providers: [ExamsApiService],
   bootstrap: [AppComponent]
 })
