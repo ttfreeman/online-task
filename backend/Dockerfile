@@ -1,10 +1,24 @@
-FROM ubuntu:latest
+FROM python:3.7.1
 
-RUN apt-get update -y 
-RUN apt-get install -y python-pip python-dev
-RUN pip install sqlalchemy psycopg2-binary flask marshmallow flask-cors
+LABEL Author="Tony Freeman"
+LABEL E-mail="ttfreeman@gmail.com"
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV FLASK_APP "./src/main.py"
+ENV FLASK_ENV "development"
+ENV FLASK_DEBUG True
+
+RUN mkdir /app
 WORKDIR /app
-COPY . /app
 
-RUN chmod u+x bootstrap.sh
-CMD [ "./bootstrap.sh &" ]
+COPY Pip* /app/
+
+RUN pip install --upgrade pip && \
+    pip install pipenv && \
+    pipenv install --dev --system --deploy --ignore-pipfile
+
+ADD . /app
+
+EXPOSE 5000
+
+CMD flask run --host=0.0.0.0

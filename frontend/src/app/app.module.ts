@@ -41,7 +41,7 @@ export class AppModule {
   constructor() {
     Auth0.configure({
       domain: "dev--1e3ghcj.auth0.com",
-      audience: "https://online-task.digituz.com.br",
+      audience: "https://online-exam.digituz.com.br",
       clientID: "om7cO5gwGVAghGKA6Ccpr8TIBohgQ2TR",
       redirectUri: "http://localhost:4200/callback",
       scope: "openid profile manage:tasks"
