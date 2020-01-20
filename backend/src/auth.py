@@ -7,7 +7,7 @@ from urllib.request import urlopen
 
 AUTH0_DOMAIN = 'dev--1e3ghcj.auth0.com'
 ALGORITHMS = ['RS256']
-API_AUDIENCE = 'https://online-task.digituz.com.br'
+API_AUDIENCE = 'https://online-exam.digituz.com.br'
 
 
 class AuthError(Exception):
