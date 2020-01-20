@@ -9,28 +9,28 @@ import { catchError, tap } from "rxjs/operators";
 import * as Auth0 from "auth0-web";
 
 import { API_URL } from "../env";
-import { Exam } from "./exam.model";
+import { Task } from "./task.model";
 
 @Injectable()
-export class ExamsApiService {
+export class TasksApiService {
   constructor(private http: HttpClient) {}
 
   private static _handleError(err: HttpErrorResponse | any) {
     return Observable.throw(err.message || "Error: Unable to complete request");
   }
 
-  getExams(): Observable<Exam[]> {
+  getTasks(): Observable<Task[]> {
     return this.http
-      .get<Exam[]>(`${API_URL}/exams`)
-      .pipe(catchError(ExamsApiService._handleError));
+      .get<Task[]>(`${API_URL}/tasks`)
+      .pipe(catchError(TasksApiService._handleError));
   }
 
-  saveExam(exam: Exam): Observable<any> {
+  saveTask(task: Task): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${Auth0.getAccessToken()}`
       })
     };
-    return this.http.post(`${API_URL}/exams`, exam, httpOptions);
+    return this.http.post(`${API_URL}/tasks`, task, httpOptions);
   }
 }

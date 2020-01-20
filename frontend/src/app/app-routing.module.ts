@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { ExamsComponent } from "./exams/exams.component";
-import { ExamFormComponent } from "./exam-form/exam-form.component";
+import { TasksComponent } from "./tasks/tasks.component";
+import { TaskFormComponent } from "./task-form/task-form.component";
 import { CallbackComponent } from "./callback/callback.component";
 
 const routes: Routes = [
   { path: "callback", component: CallbackComponent },
-  { path: "", component: ExamsComponent },
-  { path: "new-exam", component: ExamFormComponent }
+  { path: "", component: TasksComponent },
+  { path: "new-task", component: TaskFormComponent }
 ];
 
 @NgModule({

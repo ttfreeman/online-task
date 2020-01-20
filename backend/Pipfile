@@ -12,6 +12,8 @@ flask-sqlalchemy = "*"
 flask = "*"
 marshmallow = "*"
 flask-cors = "*"
+python-jose-cryptodome = "*"
+cryptography = "*"
 
 [requires]
 python_version = "3.7"
