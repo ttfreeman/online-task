@@ -1,0 +1,34 @@
+version: "3"
+services:
+  onlinetask-postgres:
+    image: "postgres:9.6-alpine"
+    container_name: online-task-db
+    volumes:
+      - onlinetask-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB:online-task
+      - POSTGRES_USER:postgres
+      - POSTGRES_PASSWORD:0NLIN3-ex4m
+
+  onlinetask-app:
+    build: ./backend
+    container_name: onlinetask-app
+    environment:
+      - DB_SERVER=online-task-db
+    ports:
+      - 5000:5000
+    # links:
+    #   - online-task-db
+
+  onlinetask-ui:
+    build: ./frontend
+    container_name: onlinetask-ui
+    ports:
+      - 4200:80
+    links:
+      - onlinetask-app
+
+volumes:
+  onlinetask-data:
