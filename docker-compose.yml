@@ -6,11 +6,13 @@ services:
     volumes:
       - onlinetask-data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - 127.0.0.1:5432:5432
     environment:
       - POSTGRES_DB:online-task
       - POSTGRES_USER:postgres
       - POSTGRES_PASSWORD:0NLIN3-ex4m
+    networks:
+      - onlinetask-network
 
   onlinetask-app:
     build: ./backend
@@ -21,14 +23,20 @@ services:
       - 5000:5000
     # links:
     #   - online-task-db
+    networks:
+      - onlinetask-network
 
   onlinetask-ui:
     build: ./frontend
     container_name: onlinetask-ui
     ports:
       - 4200:80
-    links:
-      - onlinetask-app
-
+    # links:
+    #   - onlinetask-app
+    networks:
+      - onlinetask-network
+networks:
+  onlinetask-network:
+    external: true
 volumes:
   onlinetask-data:
